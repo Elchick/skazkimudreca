@@ -1,0 +1,40 @@
+/* Story artwork — generated as a cohesive midnight series. */
+.story-art {
+  height: 250px;
+  background-position: center;
+  background-size: cover;
+  isolation: isolate;
+}
+
+.story-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(4, 15, 22, 0.02) 45%, rgba(4, 15, 22, 0.84) 100%);
+}
+
+.story-card--blue .story-art {
+  background-image: url("story-forest.png");
+  background-position: center 55%;
+}
+
+.story-card--violet .story-art {
+  background-image: url("story-whale.png");
+  background-position: center 48%;
+}
+
+.story-card--amber .story-art {
+  background-image: url("story-house.png");
+  background-position: center 54%;
+}
+
+.planet,
+.hills,
+.house-light {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .story-art { height: 230px; }
+}
