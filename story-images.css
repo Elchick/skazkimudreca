@@ -14,6 +14,44 @@
   background: linear-gradient(180deg, rgba(4, 15, 22, 0.02) 45%, rgba(4, 15, 22, 0.84) 100%);
 }
 
+/* Мягкие золотистые искры поверх новых ночных иллюстраций */
+.hero::after,
+.story-art::before,
+.quote-card::before,
+.bot-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: .58;
+  background-image:
+    radial-gradient(circle at 18% 32%, rgba(255, 206, 125, .95) 0 1px, transparent 2px),
+    radial-gradient(circle at 73% 22%, rgba(255, 184, 84, .8) 0 1px, transparent 2px),
+    radial-gradient(circle at 84% 61%, rgba(255, 218, 154, .8) 0 1.5px, transparent 3px),
+    radial-gradient(circle at 42% 76%, rgba(255, 181, 72, .72) 0 1px, transparent 2px),
+    radial-gradient(circle at 59% 45%, rgba(255, 226, 173, .65) 0 1px, transparent 2px);
+  background-size: 310px 270px, 390px 330px, 470px 360px, 350px 410px, 520px 290px;
+  filter: drop-shadow(0 0 5px rgba(255, 181, 72, .55));
+  animation: ember-drift 9s ease-in-out infinite alternate;
+}
+
+.hero::after { z-index: -1; opacity: .42; }
+.quote-card,
+.bot-panel { isolation: isolate; }
+
+@keyframes ember-drift {
+  from { transform: translate3d(0, 4px, 0); opacity: .35; }
+  to { transform: translate3d(8px, -7px, 0); opacity: .7; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::after,
+  .story-art::before,
+  .quote-card::before,
+  .bot-panel::before { animation: none; }
+}
+
 .story-card--blue .story-art {
   background-image: url("story-forest.png");
   background-position: center 55%;
